@@ -24,8 +24,9 @@ export class Store<T> {
 }
 
 export type UpdateStoreState<T> = (draft: Draft<T>) => Draft<T> | void;
+export type SetStoreState<T> = (updateState: UpdateStoreState<T>) => void;
 
-export function useStore<T>(store: Store<T>, subscribes = true) {
+export function useStore<T>(store: Store<T>, subscribes = true): [T, SetStoreState<T>] {
     let [, setRevision] = useState(-1);
     let state = store.getState();
 
