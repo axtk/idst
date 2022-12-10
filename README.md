@@ -6,8 +6,9 @@ Immutable data store for React apps with [*immer*](https://www.npmjs.com/package
 
 ```jsx
 import { createContext } from 'react';
+import { Store } from 'idst';
 
-export const AppContext = createContext({});
+export const AppContext = createContext(new Store({ counter: 0 }));
 ```
 
 ```jsx
@@ -45,7 +46,7 @@ import { Store } from 'idst';
 const App = () => <div><PlusButton/> <Display/></div>;
 
 createRoot(document.querySelector('#app')).render(
-    <AppContext.Provider value={new Store({counter: 42})}>
+    <AppContext.Provider value={new Store({ counter: 42 })}>
         <App/>
     </AppContext.Provider>
 );
