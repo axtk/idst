@@ -16,6 +16,8 @@ import { useContext } from 'react';
 import { useStore } from 'idst';
 
 export const Display = () => {
+    // the `useStore()` hook subscribes the component to changes
+    // in the store retrieved from `AppContext`
     const [state] = useStore(useContext(AppContext));
 
     return <span>{state.counter}</span>;
@@ -27,10 +29,15 @@ import { useContext } from 'react';
 import { useStore } from 'idst';
 
 export const PlusButton = () => {
+    // since this component doesn't require the current store state
+    // we can turn off the subscription to changes by adding `false`
     const [, setState] = useStore(useContext(AppContext), false);
 
     const handleClick = () => {
         setState(draftState => {
+            // `draftState` acts as a mutable reflection of the store
+            // state for convenience, while the store state itself
+            // remains immutable (the trick provided by `immer`)
             draftState.counter++;
         });
     };
