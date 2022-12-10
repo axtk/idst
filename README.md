@@ -1,23 +1,31 @@
 # idst
 
-Immutable data store for React apps with [`immer`](https://www.npmjs.com/package/immer) under the hood.
+Immutable data store for React apps with [*immer*](https://www.npmjs.com/package/immer) under the hood.
 
 ## Example
 
 ```jsx
-import {createContext, useContext} from 'react';
-import {Store, useStore} from 'idst';
-import {createRoot} from 'react-dom/client';
+import { createContext } from 'react';
 
-const AppContext = createContext({});
+export const AppContext = createContext({});
+```
 
-const Display = () => {
+```jsx
+import { useContext } from 'react';
+import { useStore } from 'idst';
+
+export const Display = () => {
     const [state] = useStore(useContext(AppContext));
 
     return <span>{state.counter}</span>;
 };
+```
 
-const PlusButton = () => {
+```jsx
+import { useContext } from 'react';
+import { useStore } from 'idst';
+
+export const PlusButton = () => {
     const [, setState] = useStore(useContext(AppContext), false);
 
     const handleClick = () => {
@@ -28,6 +36,11 @@ const PlusButton = () => {
 
     return <button onClick={handleClick}>+</button>;
 };
+```
+
+```jsx
+import { createRoot } from 'react-dom/client';
+import { Store } from 'idst';
 
 const App = () => <div><PlusButton/> <Display/></div>;
 
