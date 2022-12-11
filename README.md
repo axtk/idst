@@ -2,7 +2,12 @@
 
 Immutable data store for React apps with [*immer*](https://www.npmjs.com/package/immer) under the hood.
 
-## Example
+- Wrap up a chunk of shared data into `new Store(data)`, put it into a React Context;
+- Read, update, and subscribe to updates in the store via `const [state, setState] = useStore(store);`
+- Have as many stores as needed.
+
+<details>
+<summary>Example</summary>
 
 ```jsx
 import { createContext } from 'react';
@@ -58,5 +63,4 @@ createRoot(document.querySelector('#app')).render(
     </AppContext.Provider>
 );
 ```
-
-A React app can have a single store or multiple stores, whether in a single React Context or in separate Contexts.
+</details>
