@@ -7,7 +7,7 @@ Immutable data store for React apps with [*immer*](https://www.npmjs.com/package
 - Have as many stores as needed.
 
 <details>
-<summary>Example</summary>
+<summary><em>Example</em></summary>
 
 ```jsx
 import { createContext } from 'react';
