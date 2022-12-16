@@ -2,12 +2,11 @@
 
 Immutable data store for React apps with [*immer*](https://www.npmjs.com/package/immer) under the hood.
 
-- Wrap up a chunk of shared data into `new Store(data)`, put it into a React Context;
+- Wrap up shared data into `new Store(data)`, put it into a React Context;
 - Read, update, and subscribe to updates in the store via `const [state, setState] = useStore(store);`
 - Have as many stores as needed.
 
-<details>
-<summary><em>Example</em></summary>
+## Example
 
 ```jsx
 import { createContext } from 'react';
@@ -21,9 +20,8 @@ import { useContext } from 'react';
 import { useStore } from 'idst';
 
 export const Display = () => {
-    // the `useStore()` hook subscribes the component to changes
-    // in the store retrieved from `AppContext`
-    const [state] = useStore(useContext(AppContext));
+    const store = useContext(AppContext);
+    const [state] = useStore(store);
 
     return <span>{state.counter}</span>;
 };
@@ -34,15 +32,14 @@ import { useContext } from 'react';
 import { useStore } from 'idst';
 
 export const PlusButton = () => {
-    // since this component doesn't require the current store state
-    // we can turn off the subscription to changes by adding `false`
-    const [, setState] = useStore(useContext(AppContext), false);
+    const store = useContext(AppContext);
+    // adding `false` to turn off the subscription to changes here
+    const [, setState] = useStore(store, false);
 
     const handleClick = () => {
+        // `draftState` acts like a mutable for convenience, while
+        // the store state itself remains immutable
         setState(draftState => {
-            // `draftState` acts as a mutable reflection of the store
-            // state for convenience, while the store state itself
-            // remains immutable (the trick provided by `immer`)
             draftState.counter++;
         });
     };
@@ -63,4 +60,3 @@ createRoot(document.querySelector('#app')).render(
     </AppContext.Provider>
 );
 ```
-</details>
