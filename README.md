@@ -37,8 +37,8 @@ export const PlusButton = () => {
     const [, setState] = useStore(store, false);
 
     const handleClick = () => {
-        // `draftState` acts like a mutable for convenience, while
-        // the store state itself remains immutable
+        // `draftState` acts like a mutable for convenience and passes
+        // the updates to the immutable store state under the hood
         setState(draftState => {
             draftState.counter++;
         });
