@@ -9,15 +9,15 @@ Immutable data store for React apps with [*immer*](https://www.npmjs.com/package
 ## Example
 
 ```jsx
-import { createContext } from 'react';
-import { Store } from 'idst';
+import {createContext} from 'react';
+import {Store} from 'idst';
 
-export const AppContext = createContext(new Store({ counter: 0 }));
+export const AppContext = createContext(new Store({counter: 0}));
 ```
 
 ```jsx
-import { useContext } from 'react';
-import { useStore } from 'idst';
+import {useContext} from 'react';
+import {useStore} from 'idst';
 
 export const Display = () => {
     const store = useContext(AppContext);
@@ -28,8 +28,8 @@ export const Display = () => {
 ```
 
 ```jsx
-import { useContext } from 'react';
-import { useStore } from 'idst';
+import {useContext} from 'react';
+import {useStore} from 'idst';
 
 export const PlusButton = () => {
     const store = useContext(AppContext);
@@ -49,13 +49,13 @@ export const PlusButton = () => {
 ```
 
 ```jsx
-import { createRoot } from 'react-dom/client';
-import { Store } from 'idst';
+import {createRoot} from 'react-dom/client';
+import {Store} from 'idst';
 
 const App = () => <div><PlusButton/> <Display/></div>;
 
 createRoot(document.querySelector('#app')).render(
-    <AppContext.Provider value={new Store({ counter: 42 })}>
+    <AppContext.Provider value={new Store({counter: 42})}>
         <App/>
     </AppContext.Provider>
 );
