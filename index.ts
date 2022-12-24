@@ -1,9 +1,8 @@
 import {useEffect, useMemo, useState} from 'react';
-import {produce, Draft} from 'immer';
 import {EventManager} from 'evtm';
 
-export type UpdateStoreState<T> = (draft: Draft<T>) => Draft<T> | void;
-export type SetStoreState<T> = (updateState: UpdateStoreState<T>) => void;
+export type UpdateStoreState<T> = (state: T) => Partial<T>;
+export type SetStoreState<T> = (update: Partial<T> | UpdateStoreState<T>) => void;
 
 export const STORE_UPDATED = 'updated';
 
@@ -20,8 +19,11 @@ export class Store<T> {
     getState() {
         return this.state;
     }
-    setState(updateState: UpdateStoreState<T>) {
-        this.state = produce<T>(this.state, updateState);
+    setState(update: Partial<T> | UpdateStoreState<T>) {
+        this.state = {
+            ...this.state,
+            ...(typeof update === 'function' ? update(this.state) : update),
+        };
         this.evtm.dispatch(STORE_UPDATED);
     }
 }

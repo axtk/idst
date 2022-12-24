@@ -1,10 +1,15 @@
 # idst
 
-Immutable data store for React apps with [*immer*](https://www.npmjs.com/package/immer) under the hood.
+*<ins>I</ins>mmutable <ins>d</ins>ata <ins>st</ins>ore for React apps*
 
 - Wrap up shared data into `new Store(data)`, put it into a React Context;
-- Read, update, and subscribe to updates in the store via `const [state, setState] = useStore(store);`
+- Read and subscribe to updates in the store via `const [state, setState] = useStore(store);`
+- Update parts of the shared data via `setState({ x: 42 });` or `setState(state => ({ x: state.x + 10 }));`
 - Have as many stores as needed.
+
+The immutability of the store state is maintained through shallow-copying its state when it is updated.
+
+See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with a <ins>m</ins>utable interface of `setState()`.
 
 ## Example
 
@@ -37,11 +42,9 @@ export const PlusButton = () => {
     const [, setState] = useStore(store, false);
 
     const handleClick = () => {
-        // `draftState` acts like a mutable for convenience and passes
-        // the updates to the immutable store state under the hood
-        setState(draftState => {
-            draftState.counter++;
-        });
+        setState(state => ({
+            counter: state.counter + 1,
+        }));
     };
 
     return <button onClick={handleClick}>+</button>;

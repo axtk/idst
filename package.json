@@ -32,7 +32,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "evtm": "^4.2.0",
-    "immer": "^9.0.16"
+    "evtm": "^4.2.0"
   }
 }
