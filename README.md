@@ -2,12 +2,20 @@
 
 *<ins>I</ins>mmutable <ins>d</ins>ata <ins>st</ins>ore for React apps*
 
-- Wrap up shared data into `new Store(data)`, put it into a React Context;
-- Read and subscribe to updates in the store via `const [state, setState] = useStore(store);`
-- Update parts of the shared data via `setState({ x: 42 });` or `setState(state => ({ x: state.x + 10 }));`
-- Have as many stores as needed.
+&#x25c6; Wrap up shared data into `new Store(data)`, put it into a React Context;
 
-The immutability of the store state is maintained through shallow-copying its state when it is updated.
+&#x25c6; Read and subscribe to updates in the store:
+```js
+const [state, setState] = useStore(store);
+```
+
+&#x25c6; Update parts of the shared data:
+```js
+setState({x: 10});
+setState(state => ({x: state.x + 5}));
+```
+
+&#x25c6; Have as many stores as needed.
 
 See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with a <ins>m</ins>utable interface of `setState()`.
 
