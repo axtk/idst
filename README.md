@@ -9,6 +9,8 @@
 const [state, setState] = useStore(store);
 ```
 
+Call `useStore(store, false)` to get `[state, setState]` without subscribing to updates in the store.
+
 🔹 Update parts of the shared data:
 ```js
 setState({x: 10});
