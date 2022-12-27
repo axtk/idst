@@ -23,7 +23,7 @@ See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with
 
 ## Example
 
-[[live](https://codesandbox.io/s/bi94de)]
+([live](https://codesandbox.io/s/bi94de))
 
 ```jsx
 import {createContext} from 'react';
