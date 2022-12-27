@@ -3,6 +3,7 @@
   "version": "0.2.4",
   "description": "Immutable data store",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "build": "cross-env npm run clean && npm run compile",
     "clean": "node -e \"require('fs').rmSync('dist', {force: true, recursive: true});\"",
