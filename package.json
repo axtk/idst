@@ -1,6 +1,6 @@
 {
   "name": "idst",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Immutable data store",
   "main": "dist/index.js",
   "scripts": {
