@@ -4,24 +4,24 @@
 
 ## Purpose
 
-Sharing data across React components by means of a single new hook in a fashion similar to the React's `useState()` hook for local state.
-
-## Exports
-
-`Store`, `useStore`.
+Using data shared across React components in a simple way similar to React's `useState()`.
 
 ## Usage
 
-🔹 Wrap up shared data into `new Store(data)`, put it into a React Context;
+🔹 Wrap up shared data into `new Store(data)` imported from this package, put it into a React Context;
 
 🔹 Read and subscribe to updates in the store:
+
 ```js
-const [state, setState] = useStore(store);
+import {useStore} from 'idst';
+
+let [state, setState] = useStore(store);
 ```
 
 Call `useStore(store, false)` to get `[state, setState]` without subscribing to updates in the store.
 
 🔹 Update parts of the shared data:
+
 ```js
 setState({x: 10});
 setState(state => ({x: state.x + 5}));
