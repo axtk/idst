@@ -33,4 +33,5 @@ setState(state => ({x: state.x + 5}));
 
 [Live demo](https://codesandbox.io/s/bi94de)
 
-See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with a <ins>m</ins>utable interface of `setState()`.
+See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with a <ins>m</ins>utable interface of `setState()`.<br>
+(*idstm*'s `setState()` is handier when it comes to changing nested properties in the state and it generally results in a more concise code, but it comes with an extra dependency.)
