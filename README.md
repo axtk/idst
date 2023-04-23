@@ -1,10 +1,8 @@
 # idst
 
-*<ins>I</ins>mmutable <ins>d</ins>ata <ins>st</ins>ore for React apps*
+*React store for straightforward shared state management*
 
-## Purpose
-
-Sharing data across React components in a simple way similar to React's `useState()`.
+Making sharing data across React components similar to React's `useState()`.
 
 ## Usage
 
@@ -26,3 +24,7 @@ import {Store, useStore} from 'idst';
 
 See also [*idstm*](https://www.npmjs.com/package/idstm), an immutable store with a <ins>m</ins>utable interface of `setState()`.<br>
 (*idstm*'s `setState()` is handier when it comes to changing nested properties in the state and it generally results in a more concise code, but it comes with an extra dependency.)
+
+## Package name
+
+The package name is the initialism for *<ins>i</ins>mmutable <ins>d</ins>ata <ins>st</ins>ore*.
