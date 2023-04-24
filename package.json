@@ -1,6 +1,6 @@
 {
   "name": "idst",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "React store for straightforward shared state management",
   "main": "dist/index.js",
   "type": "module",
