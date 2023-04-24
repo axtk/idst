@@ -2,7 +2,7 @@
 
 *React store for straightforward shared state management*
 
-Making sharing data across React components similar to React's `useState()`.
+Making dealing with shared state similar to React's `useState()` for local state.
 
 ## Usage
 
